@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git &amp; GitHub, from zero</title>
+  <meta name="description" content="A friendly, visual guide to Git and GitHub for absolute beginners. Learn repositories, commits, branches, pull requests and merges, then try the Hello World exercise.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#FBFBFD" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="images/git.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav" id="top-nav">
+    <nav class="nav-inner" aria-label="Sections">
+      <a class="nav-brand" href="#hero">
+        <img src="images/git.png" alt="" width="20" height="20">
+        <span>Git from zero</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#git-vs-github">Basics</a></li>
+        <li><a href="#repository">Repository</a></li>
+        <li><a href="#commit">Commit</a></li>
+        <li><a href="#branch">Branch</a></li>
+        <li><a href="#pull-request">Pull request</a></li>
+        <li><a href="#merge">Merge</a></li>
+        <li><a href="#flow">Flow</a></li>
+        <li><a href="#commands">Commands</a></li>
+        <li><a href="#hello-world">Practice</a></li>
+        <li><a href="#quiz">Quiz</a></li>
+        <li><a href="#glossary">Glossary</a></li>
+      </ul>
+    </nav>
+    <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+  </header>
+
+  <main id="main">
+
+    <!-- 1. Hero -->
+    <section class="sec sec-light hero" id="hero">
+      <div class="wrap center">
+        <div class="hero-logos reveal">
+          <figure class="logo-tile">
+            <img src="images/git.png" alt="Git logo: a red diamond with a branching line" width="288" height="288">
+          </figure>
+          <span class="hero-plus" aria-hidden="true">+</span>
+          <figure class="logo-tile">
+            <img src="images/github.png" alt="GitHub logo: a black circle with a white cat silhouette called the Octocat" width="288" height="288">
+          </figure>
+        </div>
+        <p class="credit reveal">Images: GitHub Explore</p>
+        <h1 class="display reveal">Git &amp; GitHub,<br>from zero.</h1>
+        <p class="lead reveal">Save your work, go back in time, and build things with other people.</p>
+        <div class="hero-cta reveal">
+          <a class="btn" href="#problem">Start learning</a>
+          <a class="link-arrow" href="#hello-world">Jump to the hands-on part</a>
+        </div>
+        <p class="hero-note reveal">No coding needed. About 15 minutes.</p>
+      </div>
+    </section>
+
+    <!-- 2. The problem -->
+    <section class="sec sec-dark" id="problem">
+      <div class="wrap center">
+        <p class="eyebrow reveal">The problem</p>
+        <h2 class="headline reveal">Sound familiar?</h2>
+        <p class="lead reveal">You save a file. Then you save it again with a new name. And again. Soon you have no idea which one is the real one.</p>
+        <div class="file-stack" id="file-stack" aria-label="A messy pile of four files with similar names">
+          <div class="file" style="--i:0"><span class="file-icon" aria-hidden="true"></span>essay.docx</div>
+          <div class="file" style="--i:1"><span class="file-icon" aria-hidden="true"></span>essay_v2.docx</div>
+          <div class="file" style="--i:2"><span class="file-icon" aria-hidden="true"></span>essay_final.docx</div>
+          <div class="file" style="--i:3"><span class="file-icon" aria-hidden="true"></span>essay_FINAL_really.docx</div>
+        </div>
+        <p class="fix-line" id="fix-line">Git fixes this.</p>
+        <p class="body-text reveal">With Git you keep <strong>one</strong> file. Git quietly remembers every version for you, with a note about what changed.</p>
+      </div>
+    </section>
+
+    <!-- 3. Git vs GitHub -->
+    <section class="sec sec-gray" id="git-vs-github">
+      <div class="wrap center">
+        <p class="eyebrow reveal">Two names, two jobs</p>
+        <h2 class="headline reveal">Git is the camera.<br>GitHub is the photo album.</h2>
+        <p class="lead reveal">People mix them up all the time. Here is the simple difference.</p>
+        <div class="grid-2">
+          <article class="card reveal" style="--i:0">
+            <img class="card-logo" src="images/git.png" alt="Git logo" width="64" height="64">
+            <h3>Git</h3>
+            <p class="card-tag">A free tool on your computer</p>
+            <p>Git takes <strong>snapshots</strong> of your project. Each snapshot remembers exactly how every file looked at that moment. You can go back to any of them.</p>
+            <p class="card-compare">Like a camera that photographs your work.</p>
+          </article>
+          <article class="card reveal" style="--i:1">
+            <span class="card-logo card-logo-tile"><img src="images/github.png" alt="GitHub logo" width="48" height="48"></span>
+            <h3>GitHub</h3>
+            <p class="card-tag">A website</p>
+            <p>GitHub keeps your Git projects <strong>online</strong>. That way you can back them up, share them, and work on them with other people.</p>
+            <p class="card-compare">Like an online album where everyone can see the photos.</p>
+          </article>
+        </div>
+        <p class="credit reveal">Images: GitHub Explore</p>
+      </div>
+    </section>
+
+    <!-- 4. Repository -->
+    <section class="sec sec-light" id="repository">
+      <div class="wrap center">
+        <p class="eyebrow reveal">Idea 1 of 5</p>
+        <h2 class="headline reveal">Repository.<br>Your project folder.</h2>
+        <p class="lead reveal">A repository (or "repo") holds all the files of one project. It also keeps the full history of every change ever made.</p>
+        <div class="split">
+          <div class="folder-visual reveal" aria-hidden="true">
+            <div class="folder">
+              <div class="folder-tab"></div>
+              <div class="folder-body">
+                <span class="folder-name">hello-world</span>
+                <ul class="folder-files">
+                  <li><span class="dot-file"></span>README.md</li>
+                  <li><span class="dot-file"></span>index.html</li>
+                  <li><span class="dot-file"></span>photo.png</li>
+                  <li class="folder-history"><span class="clock"></span>History: 12 save points</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="split-text reveal">
+            <h3>What is a README?</h3>
+            <p>A README is the welcome sign of your repo. It is a short text file that says what the project is and how to use it. GitHub shows it on the front page of your repo.</p>
+            <p>The <code>.md</code> ending means <strong>Markdown</strong>, a simple way to write text with headings and lists.</p>
+          </div>
+        </div>
+        <figure class="shot reveal">
+          <div class="shot-frame">
+            <img src="images/repo-create-global-nav-update.png" width="732" height="516" loading="lazy"
+              alt="GitHub menu opened from the plus sign in the top right corner. The first option, New repository, is highlighted. Other options are Import repository, New codespace, New gist and New organization.">
+          </div>
+          <figcaption>To make a repo on GitHub, click the <strong>+</strong> in the top right corner, then <strong>New repository</strong>.<span class="credit">Image: GitHub Docs</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 5. Commit -->
+    <section class="sec sec-dark" id="commit">
+      <div class="wrap center">
+        <p class="eyebrow reveal">Idea 2 of 5</p>
+        <h2 class="headline reveal">Commit.<br>A save point with a note.</h2>
+        <p class="lead reveal">When you commit, Git takes a snapshot of your files. You add a short message so you remember what you changed.</p>
+        <ol class="timeline" id="timeline" aria-label="Example list of commits, oldest first">
+          <li style="--i:0"><span class="tl-dot"></span><span class="tl-msg">Add README</span><span class="tl-time">Mon 9:02</span></li>
+          <li style="--i:1"><span class="tl-dot"></span><span class="tl-msg">Write first paragraph</span><span class="tl-time">Mon 9:40</span></li>
+          <li style="--i:2"><span class="tl-dot"></span><span class="tl-msg">Fix typo in title</span><span class="tl-time">Tue 14:15</span></li>
+          <li style="--i:3"><span class="tl-dot"></span><span class="tl-msg">Add a photo</span><span class="tl-time">Wed 11:30</span></li>
+          <li style="--i:4"><span class="tl-dot"></span><span class="tl-msg">Update contact info</span><span class="tl-time">Thu 16:05</span></li>
+        </ol>
+        <p class="body-text reveal">Made a mistake? Jump back to any dot. Good messages are short and clear, like "Fix typo in title".</p>
+      </div>
+    </section>
+
+    <!-- 6. Branch (scrollytelling) -->
+    <section class="sec sec-light scrolly" id="branch" aria-labelledby="branch-title">
+      <div class="scrolly-sticky">
+        <div class="wrap center">
+          <p class="eyebrow">Idea 3 of 5</p>
+          <h2 class="headline headline-sm" id="branch-title">Branch.<br>A safe copy to try ideas.</h2>
+          <div class="branch-figure" id="branch-figure" data-step="0">
+            <svg viewBox="0 0 1000 340" role="img" aria-labelledby="branch-svg-title branch-svg-desc">
+              <title id="branch-svg-title">Branch diagram</title>
+              <desc id="branch-svg-desc">A straight line called main runs left to right. A feature branch splits off below it, gets three commits, has a pull request opened, and then merges back into main.</desc>
+              <defs>
+                <marker id="arrowhead" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="3.2" markerHeight="3.2" orient="auto">
+                  <path d="M0,0 L10,5 L0,10 z" class="svg-main-fill"/>
+                </marker>
+              </defs>
+              <!-- main line -->
+              <path class="b-path b-main" pathLength="1" d="M30,80 L960,80" marker-end="url(#arrowhead)"/>
+              <text class="b-label" x="40" y="45">main</text>
+              <circle class="b-dot b-dot-main s0" cx="90" cy="80" r="14"/>
+              <circle class="b-dot b-dot-main s0" cx="170" cy="80" r="14"/>
+              <!-- feature branch -->
+              <path class="b-path b-feature s1" pathLength="1" d="M170,80 C240,80 240,250 320,250 L620,250"/>
+              <text class="b-label b-label-feature s1" x="330" y="310">feature</text>
+              <circle class="b-dot b-dot-feature s2" style="--d:0" cx="380" cy="250" r="14"/>
+              <circle class="b-dot b-dot-feature s2" style="--d:1" cx="460" cy="250" r="14"/>
+              <circle class="b-dot b-dot-feature s2" style="--d:2" cx="540" cy="250" r="14"/>
+              <!-- pull request -->
+              <g class="b-pr s3">
+                <circle cx="620" cy="250" r="32"/>
+                <g class="b-pr-icon" transform="translate(604 232)">
+                  <circle cx="6" cy="6" r="4.5"/><circle cx="6" cy="30" r="4.5"/><circle cx="26" cy="30" r="4.5"/>
+                  <path d="M6 10.5 V25.5 M26 25.5 V12 Q26 6 20 6 H14 M17 2 L13 6 L17 10"/>
+                </g>
+                <g class="b-bubble">
+                  <rect x="540" y="150" width="160" height="44" rx="14"/>
+                  <path d="M610 194 L620 208 L630 194 z"/>
+                  <text x="620" y="179">Add my changes?</text>
+                </g>
+              </g>
+              <!-- merge back -->
+              <path class="b-path b-feature b-merge s4" pathLength="1" d="M652,250 L720,250 C800,250 800,80 860,80"/>
+              <circle class="b-dot b-dot-merge s4" cx="860" cy="80" r="18"/>
+            </svg>
+          </div>
+          <ol class="branch-steps" aria-live="polite">
+            <li data-step="0"><strong>This is main.</strong> It is the official, working version of your project.</li>
+            <li data-step="1"><strong>Make a branch.</strong> It is a copy of main where you can try ideas safely.</li>
+            <li data-step="2"><strong>Commit on the branch.</strong> Your changes stay here. Main is not touched.</li>
+            <li data-step="3"><strong>Open a pull request.</strong> You ask: "Can we add my changes to main?"</li>
+            <li data-step="4"><strong>Merge.</strong> After a review, your changes join main. Done!</li>
+          </ol>
+          <div class="step-dots" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+          <p class="scroll-hint" aria-hidden="true">Keep scrolling to build the diagram</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-light sec-tight" aria-label="Branching on GitHub">
+      <div class="wrap center">
+        <figure class="shot shot-wide reveal">
+          <div class="shot-frame">
+            <img src="images/branching.png" width="2098" height="528" loading="lazy"
+              alt="GitHub's branching diagram. A feature branch is created from main, gets commits, a pull request is submitted, people discuss the changes, and the feature branch is merged back into main.">
+          </div>
+          <figcaption>The same idea, drawn by GitHub. People can discuss your changes before they join main.<span class="credit">Image: GitHub Docs</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 7. Pull request -->
+    <section class="sec sec-gray" id="pull-request">
+      <div class="wrap center">
+        <p class="eyebrow reveal">Idea 4 of 5</p>
+        <h2 class="headline reveal">Pull request.<br>"Add my changes?"</h2>
+        <p class="lead reveal">A pull request (or "PR") asks the team to look at your branch and add it to main. GitHub shows exactly what changed. This view is called a <strong>diff</strong>.</p>
+        <figure class="shot reveal">
+          <div class="shot-frame">
+            <img src="images/diffs.png" width="1434" height="516" loading="lazy"
+              alt="A GitHub diff for the file README.md. Three red lines were removed: test-area-2, edit1 and edit2. Three green lines were added: About me, an empty line, and My name is Mona Lisa.">
+          </div>
+          <figcaption>A diff of the README file.<span class="credit">Image: GitHub Docs</span></figcaption>
+        </figure>
+        <div class="legend">
+          <div class="legend-item reveal" style="--i:0"><span class="legend-swatch removed" aria-hidden="true">&minus;</span><div><strong>Red lines</strong> were removed.</div></div>
+          <div class="legend-item reveal" style="--i:1"><span class="legend-swatch added" aria-hidden="true">+</span><div><strong>Green lines</strong> were added.</div></div>
+        </div>
+        <p class="body-text reveal">Others can leave comments, ask questions, or suggest fixes before anything changes in main.</p>
+      </div>
+    </section>
+
+    <!-- 8. Merge -->
+    <section class="sec sec-dark" id="merge">
+      <div class="wrap center">
+        <p class="eyebrow reveal">Idea 5 of 5</p>
+        <h2 class="headline reveal">Merge.<br>Bring it home.</h2>
+        <p class="lead reveal">Merging adds the changes from your branch into main. Most of the time it takes two clicks.</p>
+        <div class="grid-2">
+          <article class="card card-dark reveal" style="--i:0">
+            <h3>Normal merge</h3>
+            <p>On the pull request page, click <strong>Merge pull request</strong>, then <strong>Confirm merge</strong>. Try it:</p>
+            <div class="merge-demo" id="merge-demo">
+              <div class="merge-box">
+                <span class="merge-ok" aria-hidden="true">&#10003;</span>
+                <span>This branch has no conflicts with main</span>
+              </div>
+              <button type="button" class="gh-btn" id="merge-btn">Merge pull request</button>
+              <p class="merge-done" id="merge-done" role="status" aria-live="polite"></p>
+            </div>
+          </article>
+          <article class="card card-dark reveal" style="--i:1">
+            <h3>Merge conflict</h3>
+            <p>Ana and Ben changed <strong>the same line</strong>. Git cannot guess which one is right, so it asks you. It is not an error. It is just a question.</p>
+            <div class="conflict" id="conflict">
+              <p class="conflict-label">Line 1 of README.md</p>
+              <div class="conflict-line ana"><span class="who">Ana</span><code>Welcome to my page</code></div>
+              <div class="conflict-line ben"><span class="who">Ben</span><code>Hello and welcome</code></div>
+              <div class="conflict-actions" role="group" aria-label="Pick what to keep">
+                <button type="button" class="chip" data-keep="ana">Keep Ana's</button>
+                <button type="button" class="chip" data-keep="ben">Keep Ben's</button>
+                <button type="button" class="chip" data-keep="both">Keep both</button>
+              </div>
+              <p class="conflict-result" id="conflict-result" role="status" aria-live="polite">Pick one to fix the conflict.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. The GitHub flow -->
+    <section class="sec sec-light" id="flow">
+      <div class="wrap center">
+        <p class="eyebrow reveal">Put it together</p>
+        <h2 class="headline reveal">The GitHub flow.</h2>
+        <p class="lead reveal">This is how most people work on GitHub. Five steps, again and again.</p>
+        <ol class="flow" id="flow-list">
+          <li class="flow-step" style="--i:0"><span class="flow-num">1</span><strong>Branch</strong><span>Make a safe copy</span></li>
+          <li class="flow-arrow" aria-hidden="true" style="--i:0"><svg viewBox="0 0 40 16"><path d="M2 8 H34 M28 2 L36 8 L28 14"/></svg></li>
+          <li class="flow-step" style="--i:1"><span class="flow-num">2</span><strong>Commit</strong><span>Save your changes</span></li>
+          <li class="flow-arrow" aria-hidden="true" style="--i:1"><svg viewBox="0 0 40 16"><path d="M2 8 H34 M28 2 L36 8 L28 14"/></svg></li>
+          <li class="flow-step" style="--i:2"><span class="flow-num">3</span><strong>Pull request</strong><span>Ask to add them</span></li>
+          <li class="flow-arrow" aria-hidden="true" style="--i:2"><svg viewBox="0 0 40 16"><path d="M2 8 H34 M28 2 L36 8 L28 14"/></svg></li>
+          <li class="flow-step" style="--i:3"><span class="flow-num">4</span><strong>Review</strong><span>Others take a look</span></li>
+          <li class="flow-arrow" aria-hidden="true" style="--i:3"><svg viewBox="0 0 40 16"><path d="M2 8 H34 M28 2 L36 8 L28 14"/></svg></li>
+          <li class="flow-step" style="--i:4"><span class="flow-num">5</span><strong>Merge</strong><span>Join main</span></li>
+        </ol>
+        <p class="flow-repeat" id="flow-repeat"><span class="repeat-icon" aria-hidden="true">&#8635;</span> Then repeat with a new branch.</p>
+      </div>
+    </section>
+
+    <!-- 10. Six starter commands -->
+    <section class="sec sec-dark" id="commands">
+      <div class="wrap center">
+        <p class="eyebrow reveal">For later</p>
+        <h2 class="headline reveal">Six starter commands.</h2>
+        <p class="lead reveal">You can do everything on this page in your browser. But one day you may use Git on your own computer by typing commands. Click one to see what it does.</p>
+        <div class="terminal-wrap reveal">
+          <div class="cmd-list" role="group" aria-label="Pick a command">
+            <button type="button" class="cmd" data-cmd="0">git clone</button>
+            <button type="button" class="cmd" data-cmd="1">git status</button>
+            <button type="button" class="cmd" data-cmd="2">git add .</button>
+            <button type="button" class="cmd" data-cmd="3">git commit -m</button>
+            <button type="button" class="cmd" data-cmd="4">git push</button>
+            <button type="button" class="cmd" data-cmd="5">git pull</button>
+          </div>
+          <div class="terminal">
+            <div class="terminal-bar" aria-hidden="true"><span></span><span></span><span></span><em>Terminal</em></div>
+            <div class="terminal-body" aria-live="polite">
+              <p class="term-line"><span class="prompt" aria-hidden="true">~/hello-world $</span> <span id="term-cmd"></span><span class="caret" aria-hidden="true"></span></p>
+              <pre class="term-out" id="term-out">Pick a command above to try it.</pre>
+            </div>
+          </div>
+          <div class="explain" id="explain" aria-live="polite">
+            <p class="explain-title" id="explain-title">What does it do?</p>
+            <p id="explain-text">Each command has a plain English meaning. Pick one to find out.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Hands-on Hello World -->
+    <section class="sec sec-gray" id="hello-world">
+      <div class="wrap center">
+        <p class="eyebrow reveal">Your turn</p>
+        <h2 class="headline reveal">Hello World.<br>Do it for real.</h2>
+        <p class="lead reveal">Open <a href="https://github.com" target="_blank" rel="noopener">github.com</a> in a new tab and sign in (it is free). Follow these five steps. Tick each one when you finish.</p>
+        <div class="hw-progress reveal" aria-live="polite">
+          <div class="hw-bar"><span id="hw-bar"></span></div>
+          <p id="hw-count">0 of 5 done</p>
+        </div>
+        <ol class="hw-list" id="hw-list">
+          <li class="hw-step reveal" style="--i:0">
+            <input type="checkbox" id="hw-1" data-step="1">
+            <label for="hw-1"><span class="hw-num">1</span><span class="hw-title">Make a repository called <code>hello-world</code></span></label>
+            <div class="hw-body">
+              <p>Click <strong>+</strong> in the top right corner, then <strong>New repository</strong>. Name it <code>hello-world</code>. Turn on <strong>Add a README file</strong>. Click <strong>Create repository</strong>.</p>
+            </div>
+          </li>
+          <li class="hw-step reveal" style="--i:1">
+            <input type="checkbox" id="hw-2" data-step="2">
+            <label for="hw-2"><span class="hw-num">2</span><span class="hw-title">Make a branch called <code>readme-edits</code></span></label>
+            <div class="hw-body">
+              <p>On the <strong>Code</strong> tab, click the button that says <strong>main</strong>. Type <code>readme-edits</code> in the box. Click <strong>Create branch: readme-edits from 'main'</strong>.</p>
+              <figure class="shot shot-small">
+                <div class="shot-frame">
+                  <img src="images/new-branch.png" width="630" height="526" loading="lazy"
+                    alt="The branch menu on GitHub. The text box says readme-edits, and the option Create branch: readme-edits from main is highlighted.">
+                </div>
+                <figcaption><span class="credit">Image: GitHub Docs</span></figcaption>
+              </figure>
+            </div>
+          </li>
+          <li class="hw-step reveal" style="--i:2">
+            <input type="checkbox" id="hw-3" data-step="3">
+            <label for="hw-3"><span class="hw-num">3</span><span class="hw-title">Edit the README and commit</span></label>
+            <div class="hw-body">
+              <p>While on the <code>readme-edits</code> branch, click <strong>README.md</strong>, then the pencil icon. Write a line about yourself. Click <strong>Commit changes</strong>, add a short message, and click <strong>Commit changes</strong> again.</p>
+            </div>
+          </li>
+          <li class="hw-step reveal" style="--i:3">
+            <input type="checkbox" id="hw-4" data-step="4">
+            <label for="hw-4"><span class="hw-num">4</span><span class="hw-title">Open a pull request</span></label>
+            <div class="hw-body">
+              <p>Click the <strong>Pull requests</strong> tab, then <strong>New pull request</strong>. Choose <code>readme-edits</code> to compare with <code>main</code>. Check the red and green lines. Click <strong>Create pull request</strong>, add a title, and click <strong>Create pull request</strong> again.</p>
+            </div>
+          </li>
+          <li class="hw-step reveal" style="--i:4">
+            <input type="checkbox" id="hw-5" data-step="5">
+            <label for="hw-5"><span class="hw-num">5</span><span class="hw-title">Merge it</span></label>
+            <div class="hw-body">
+              <p>At the bottom of your pull request, click <strong>Merge pull request</strong>, then <strong>Confirm merge</strong>. You can now delete the branch. Your change is in main!</p>
+            </div>
+          </li>
+        </ol>
+        <p class="hw-done" id="hw-done" role="status"></p>
+        <p class="reveal"><a class="link-arrow" href="https://docs.github.com/en/get-started/using-github/hello-world" target="_blank" rel="noopener">Read the official Hello World guide</a></p>
+      </div>
+    </section>
+
+    <!-- 12. Good to know next -->
+    <section class="sec sec-light" id="next">
+      <div class="wrap center">
+        <p class="eyebrow reveal">Good to know next</p>
+        <h2 class="headline reveal">A few more words<br>you will see.</h2>
+        <div class="grid-4">
+          <article class="card card-small reveal" style="--i:0">
+            <span class="card-emoji" aria-hidden="true">&#128221;</span>
+            <h3>Issues</h3>
+            <p>A to-do list for your project. Use issues to report bugs, ask questions or plan new ideas.</p>
+          </article>
+          <article class="card card-small reveal" style="--i:1">
+            <span class="card-emoji" aria-hidden="true">&#127860;</span>
+            <h3>Fork</h3>
+            <p>Your own copy of someone else's repo. Change it freely, then offer your changes back with a pull request.</p>
+          </article>
+          <article class="card card-small reveal" style="--i:2">
+            <span class="card-emoji" aria-hidden="true">&#127760;</span>
+            <h3>GitHub Pages</h3>
+            <p>Free website hosting. Put HTML files in a repo and GitHub turns them into a live website. Like this one!</p>
+          </article>
+          <article class="card card-small reveal" style="--i:3">
+            <span class="card-emoji" aria-hidden="true">&#128272;</span>
+            <h3>Two-factor login (2FA)</h3>
+            <p>An extra lock on your account. After your password, you also enter a code from your phone. Turn it on.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. Mini quiz -->
+    <section class="sec sec-dark" id="quiz">
+      <div class="wrap center">
+        <p class="eyebrow reveal">Check yourself</p>
+        <h2 class="headline reveal">Mini quiz.</h2>
+        <p class="lead reveal">Five quick questions. No pressure. You get the answer right away.</p>
+        <div class="quiz" id="quiz-list"></div>
+        <p class="quiz-score" id="quiz-score" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- 14. Glossary -->
+    <section class="sec sec-gray" id="glossary">
+      <div class="wrap center">
+        <p class="eyebrow reveal">Look it up</p>
+        <h2 class="headline reveal">Glossary.</h2>
+        <p class="lead reveal">Every word from this page, in one place.</p>
+        <div class="search reveal">
+          <label for="gloss-search" class="visually-hidden">Search the glossary</label>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 L21 21"/></svg>
+          <input type="search" id="gloss-search" placeholder="Search a word, like branch" autocomplete="off">
+        </div>
+        <dl class="glossary reveal" id="glossary-list">
+          <div><dt>Repository (repo)</dt><dd>A project folder that holds your files and the full history of every change.</dd></div>
+          <div><dt>Commit</dt><dd>A save point with a short note that says what you changed.</dd></div>
+          <div><dt>Branch</dt><dd>A safe copy of your project where you can try ideas without changing main.</dd></div>
+          <div><dt>Main</dt><dd>The default branch. It holds the official, working version of the project.</dd></div>
+          <div><dt>Pull request (PR)</dt><dd>A request to add the changes from your branch into another branch, usually main. Others can review it first.</dd></div>
+          <div><dt>Merge</dt><dd>Adding the changes from one branch into another.</dd></div>
+          <div><dt>Merge conflict</dt><dd>When two people changed the same line. Git asks you to pick what to keep. It is a question, not an error.</dd></div>
+          <div><dt>Clone</dt><dd>Making a copy of a repo from GitHub on your own computer.</dd></div>
+          <div><dt>Push</dt><dd>Sending your commits from your computer up to GitHub.</dd></div>
+          <div><dt>Pull</dt><dd>Bringing the newest changes from GitHub down to your computer.</dd></div>
+          <div><dt>Fork</dt><dd>Your own copy of someone else's repo on GitHub.</dd></div>
+          <div><dt>README</dt><dd>A welcome file that explains what a project is and how to use it.</dd></div>
+          <div><dt>Issue</dt><dd>A note in a repo to report a bug, ask a question or suggest an idea.</dd></div>
+        </dl>
+        <p class="gloss-empty" id="gloss-empty" hidden>No match. Try a different word.</p>
+      </div>
+    </section>
+
+    <!-- 15. Keep going -->
+    <section class="sec sec-light" id="keep-going">
+      <div class="wrap center">
+        <p class="eyebrow reveal">Keep going</p>
+        <h2 class="headline reveal">You did it.<br>What is next?</h2>
+        <p class="lead reveal">You now know the basics. These free resources from GitHub will take you further.</p>
+        <div class="grid-3">
+          <a class="card card-link reveal" style="--i:0" href="https://learn.github.com/skills" target="_blank" rel="noopener">
+            <h3>GitHub Skills</h3>
+            <p>Short, hands-on courses that run right inside GitHub.</p>
+            <span class="link-arrow">Start a course</span>
+          </a>
+          <a class="card card-link reveal" style="--i:1" href="https://docs.github.com/en/get-started/using-github/hello-world" target="_blank" rel="noopener">
+            <h3>Hello World guide</h3>
+            <p>The official step by step guide this page is based on.</p>
+            <span class="link-arrow">Read the guide</span>
+          </a>
+          <a class="card card-link reveal" style="--i:2" href="https://github.blog/developer-skills/github/github-for-beginners-your-roadmap-to-mastering-the-github-essentials/" target="_blank" rel="noopener">
+            <h3>GitHub for Beginners</h3>
+            <p>A roadmap of videos and articles on the GitHub essentials.</p>
+            <span class="link-arrow">See the roadmap</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p><strong>Image credits.</strong> Screenshots and the branching diagram are from <a href="https://github.com/github/docs">GitHub Docs</a> (github/docs, CC BY 4.0). Git and GitHub logos are from <a href="https://github.com/github/explore">GitHub Explore</a> (github/explore).</p>
+      <p>Content is based on GitHub's <a href="https://docs.github.com/en/get-started/using-github/hello-world">Hello World guide</a>, <a href="https://learn.github.com/skills">GitHub Skills</a> and the <a href="https://github.blog/developer-skills/github/github-for-beginners-your-roadmap-to-mastering-the-github-essentials/">GitHub for Beginners</a> roadmap. This is an unofficial learning page.</p>
+      <p><a href="#hero">Back to top</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
