@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Rescue a literary magazine. A free, story-driven game about writing, revision, Git and GitHub. No coding or account required."
+    />
+    <meta name="theme-color" content="#f2ede3" />
+    <title>The Last Draft — Every story has a history.</title>
+    <link rel="icon" href="../../images/git.png" type="image/png" />
+    <link rel="stylesheet" href="./game.css" />
+    <script type="module" src="./app.mjs"></script>
+  </head>
+  <body class="last-draft">
+    <a class="skip" href="#desk">Skip to the editorial desk</a>
+    <header class="site-bar">
+      <a href="../../">← Git from zero</a
+      ><span>A writing adventure · No coding required</span
+      ><span class="edition-mark">ISSUE № 01</span>
+    </header>
+    <main id="app"><p class="loading">Opening the editorial office…</p></main>
+    <div
+      id="announcement"
+      class="announcement"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+    <noscript
+      ><p class="loading">
+        This game needs JavaScript to keep track of manuscript revisions. You
+        can still <a href="../../">read the beginner guide</a>.
+      </p></noscript
+    >
+    <footer class="game-footer">
+      <span>The Last Draft · A small magazine with a long memory.</span
+      ><span>Local simulation. No real GitHub repositories are changed.</span>
+    </footer>
+  </body>
+</html>
