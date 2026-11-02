@@ -1,0 +1,282 @@
+/* Only the learning game loads these additions to the site's shared tokens. */
+.guided main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 56px var(--gutter) 40px;
+}
+.guided .game-heading {
+  margin-bottom: 28px;
+}
+.guided .kicker {
+  color: var(--link);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+.guided h1 {
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  margin-bottom: 20px;
+}
+.guided .lead {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+.guided h2 {
+  font-size: 21px;
+}
+.guided .document-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+.guided .document-label {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.guided .document-label span,
+.guided .small {
+  font-size: 14px;
+  color: var(--muted);
+}
+.guided pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-family: var(--font);
+  line-height: 1.75;
+  margin: 12px 0 24px;
+}
+.guided .document-text {
+  font-size: 19px;
+}
+.guided button {
+  cursor: pointer;
+  min-height: 44px;
+}
+.guided .btn {
+  border: 0;
+  background: var(--accent);
+  text-align: center;
+}
+.guided .btn:hover {
+  background: var(--accent);
+}
+.guided .secondary {
+  background: transparent;
+  color: var(--link);
+  border: 1px solid var(--line);
+  border-radius: 980px;
+  padding: 10px 18px;
+}
+.guided label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.guided textarea {
+  width: 100%;
+  min-height: 160px;
+  resize: vertical;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 16px;
+  font: inherit;
+  line-height: 1.65;
+}
+.guided .action-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+.guided .feedback,
+.guided .notice {
+  border-left: 3px solid var(--link);
+  background: var(--bg-alt);
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+.guided .notice {
+  border-color: var(--red);
+}
+.guided .feedback p {
+  margin: 6px 0 0;
+}
+.guided .support {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 20px 0;
+}
+.guided .hint {
+  max-width: 500px;
+  margin: 12px 0;
+}
+.guided details {
+  border-top: 1px solid var(--line);
+  padding: 14px 0;
+}
+.guided summary {
+  cursor: pointer;
+  min-height: 32px;
+  padding: 4px 0;
+}
+.guided details p {
+  margin-top: 12px;
+}
+.guided .checkpoint {
+  background: var(--bg-alt);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 20px 0;
+}
+.guided .checkpoint p {
+  white-space: pre-line;
+  margin: 10px 0;
+}
+.guided .comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 20px 0;
+}
+.guided .comparison h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+.guided .diff-text p {
+  padding: 6px;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.guided .removed {
+  background: var(--red-bg);
+}
+.guided .added {
+  background: var(--green-bg);
+}
+.guided .line-sign {
+  margin-right: 8px;
+}
+.guided .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.guided .guided-footer {
+  max-width: 780px;
+  padding: 20px var(--gutter) 36px;
+  margin: auto;
+  color: var(--muted);
+  font-size: 13px;
+}
+.guided .history ol {
+  padding-left: 24px;
+}
+@media (max-width: 600px) {
+  .guided main {
+    padding-top: 32px;
+  }
+  .guided .document-card {
+    padding: 20px;
+    border-radius: 20px;
+  }
+  .guided .lead {
+    font-size: 18px;
+  }
+  .guided .comparison {
+    grid-template-columns: 1fr;
+  }
+  .guided .action-row .btn {
+    width: 100%;
+  }
+  .guided .nav-brand {
+    font-size: 13px;
+  }
+  .guided .nav-inner {
+    gap: 8px;
+  }
+  .guided .nav-links {
+    padding: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:has(.guided) {
+    scroll-behavior: auto;
+  }
+  .guided *,
+  .guided *::before,
+  .guided *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+.guided .history ol {
+  list-style: none;
+  border-left: 2px solid var(--link);
+  margin-left: 8px;
+}
+.guided .history li {
+  position: relative;
+}
+.guided .history li::before {
+  content: "";
+  position: absolute;
+  left: -31px;
+  top: 26px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--link);
+  border-radius: 50%;
+  background: var(--card);
+}
+.guided .history-graph {
+  margin: 20px 0;
+}
+.guided .graph-scroll {
+  overflow-x: auto;
+  border-radius: 12px;
+  background: var(--bg-alt);
+}
+.guided .history-graph svg {
+  width: 100%;
+  max-height: 260px;
+}
+.guided .history-graph path {
+  fill: none;
+  stroke: var(--link);
+  stroke-width: 2;
+}
+.guided .history-graph .joining-history {
+  stroke: var(--purple);
+}
+.guided .history-graph circle {
+  fill: var(--card);
+  stroke: var(--link);
+  stroke-width: 2;
+}
+.guided .history-graph text {
+  fill: var(--text);
+  font: 11px var(--mono);
+}
+.guided .history-graph figcaption {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 8px;
+}

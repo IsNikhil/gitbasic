@@ -1,7 +1,7 @@
 import { esc } from "./view-helpers.mjs";
 
 /** Render real commit ancestry; branch labels below identify the current tips.
- * @param {import('./types.js').Repository} repo
+ * @param {{commits: Record<string, {id: string, parents: string[]}>, branches: Record<string, string>, current: string}} repo
  */
 export function historyGraph(repo) {
   const revisions = Object.values(repo.commits);

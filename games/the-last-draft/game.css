@@ -1,13 +1,11 @@
 /* This stylesheet is loaded only by the game's own document. */
 .last-draft {
-  --ink: #283b32;
-  --muted: #62675d;
-  --paper: #fffcf5;
-  --cream: #f2ede3;
-  --line: #d9d3c5;
-  --green: #284f3d;
-  --rust: #97462f;
-  --gold: #c39a4e;
+  --ink: var(--text);
+  --paper: var(--card);
+  --cream: var(--bg);
+  --green: var(--link);
+  --rust: var(--link);
+  --gold: var(--accent);
   margin: 0;
   background: var(--cream);
   color: var(--ink);
@@ -34,7 +32,7 @@
   line-height: 1.15;
 }
 .last-draft h2 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font);
   font-size: 32px;
   font-weight: 400;
   letter-spacing: -0.6px;
@@ -59,7 +57,7 @@
 .last-draft button {
   min-height: 44px;
   padding: 10px 17px;
-  border: 1px solid #acae9c;
+  border: 1px solid var(--line);
   border-radius: 5px;
   background: transparent;
   line-height: 1.35;
@@ -69,25 +67,25 @@
     box-shadow 0.16s;
 }
 .last-draft button:hover:not(:disabled) {
-  background: #e5e7db;
-  box-shadow: 0 2px 0 #c8cbbd;
+  background: var(--bg-alt);
+  box-shadow: 0 2px 0 var(--line);
 }
 .last-draft button.primary {
   background: var(--green);
   border-color: var(--green);
-  color: #fffdf5;
+  color: #fff;
 }
 .last-draft button.primary:hover:not(:disabled) {
-  background: #193b2b;
-  box-shadow: 0 2px 0 #11291e;
+  background: var(--accent);
+  box-shadow: 0 2px 0 var(--line);
 }
 .last-draft button.large {
   padding: 16px 28px;
 }
 .last-draft button:disabled {
-  color: #73766b;
-  background: #e7e4da;
-  border-color: #d6d3c8;
+  color: var(--muted);
+  background: var(--bg-alt);
+  border-color: var(--line);
   cursor: not-allowed;
 }
 .last-draft .text-button {
@@ -97,7 +95,7 @@
   font-size: 13px;
 }
 .last-draft :focus-visible {
-  outline: 3px solid #a95826;
+  outline: 3px solid var(--accent);
   outline-offset: 4px;
 }
 .last-draft [tabindex="-1"]:focus {
@@ -106,7 +104,7 @@
 .last-draft input,
 .last-draft textarea,
 .last-draft select {
-  border: 1px solid #969d8e;
+  border: 1px solid var(--line);
   border-radius: 4px;
   background: var(--paper);
   padding: 11px 12px;
@@ -121,7 +119,7 @@
 }
 .last-draft input::placeholder,
 .last-draft textarea::placeholder {
-  color: #6c7067;
+  color: var(--muted);
 }
 .last-draft label {
   display: block;
@@ -168,7 +166,7 @@
   justify-content: space-between;
   border-bottom: 1px solid var(--line);
   font-size: 12px;
-  background: #e9e5db;
+  background: var(--bg-alt);
 }
 .last-draft .site-bar a {
   text-decoration: none;
@@ -205,7 +203,7 @@
   padding: 21px 0 18px;
 }
 .last-draft .masthead h1 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font);
   font-size: clamp(34px, 5.6vw, 80px);
   font-weight: 400;
   letter-spacing: -3px;
@@ -215,9 +213,7 @@
   color: var(--rust);
 }
 .last-draft .masthead-title p {
-  font:
-    italic 22px/1.4 Georgia,
-    serif;
+  font: italic 22px/1.4 var(--font);
   margin: 0;
 }
 .last-draft .masthead-bottom {
@@ -259,20 +255,16 @@
   background: var(--paper);
   padding: 45px 40px 30px;
   box-shadow:
-    0 10px 35px #53482d12,
-    3px 4px 0 #e1dbcd;
+    0 10px 35px rgba(0, 0, 0, 0.06),
+    3px 4px 0 var(--bg-alt);
   transform: rotate(2deg);
-  border: 1px solid #e0d9cb;
+  border: 1px solid var(--bg-alt);
 }
 .last-draft .welcome-letter p {
-  font:
-    25px/1.55 Georgia,
-    serif;
+  font: 25px/1.55 var(--font);
 }
 .last-draft .signature {
-  font:
-    italic 26px Georgia,
-    serif;
+  font: italic 26px var(--font);
   display: block;
   margin-top: 25px;
 }
@@ -291,7 +283,7 @@
   position: absolute;
   width: 16px;
   height: 55px;
-  border: 2px solid #a29e90;
+  border: 2px solid var(--line);
   border-radius: 12px;
   top: -12px;
   right: 45px;
@@ -302,9 +294,7 @@
   justify-content: space-between;
   padding: 25px 35px 40px;
   color: var(--muted);
-  font:
-    italic 19px Georgia,
-    serif;
+  font: italic 19px var(--font);
 }
 .last-draft .chapters {
   display: grid;
@@ -327,16 +317,14 @@
   margin-top: 5px;
 }
 .last-draft .chapters button[aria-current="step"] {
-  background: #e1e5d7;
+  background: var(--bg-alt);
   box-shadow: inset 0 -3px var(--green);
 }
 .last-draft .chapters button:disabled {
   background: transparent;
 }
 .last-draft .chapter-number {
-  font:
-    22px Georgia,
-    serif;
+  font: 22px var(--font);
   color: var(--rust);
 }
 .last-draft .chapters button:disabled .chapter-number {
@@ -379,9 +367,7 @@
   margin-bottom: 25px;
 }
 .last-draft .issue-label span {
-  font:
-    44px Georgia,
-    serif;
+  font: 44px var(--font);
   color: var(--rust);
 }
 .last-draft .mission-panel h2 {
@@ -416,7 +402,7 @@
 .last-draft .progress-track {
   height: 4px;
   border-radius: 2px;
-  background: #d6d4c7;
+  background: var(--line);
   margin: 10px 0;
   overflow: hidden;
 }
@@ -446,17 +432,15 @@
   padding: 20px 0 0;
 }
 .last-draft .mission-ready h3 {
-  font:
-    italic 22px Georgia,
-    serif;
+  font: italic 22px var(--font);
 }
 .last-draft .desk-content {
   min-width: 0;
 }
 .last-draft .message-card {
-  background: #e6e9df;
+  background: var(--bg-alt);
   padding: 22px 28px;
-  border: 1px solid #d1d8c8;
+  border: 1px solid var(--line);
   border-radius: 6px;
   margin-bottom: 24px;
 }
@@ -473,12 +457,10 @@
   width: 39px;
   height: 39px;
   border-radius: 50%;
-  background: #d1d9c9;
+  background: var(--line);
   justify-content: center;
   align-items: center;
-  font:
-    16px Georgia,
-    serif;
+  font: 16px var(--font);
 }
 .last-draft .message-author small {
   font-size: 11px;
@@ -489,26 +471,22 @@
   letter-spacing: 1px;
 }
 .last-draft .message-card h3 {
-  font:
-    23px Georgia,
-    serif;
+  font: 23px var(--font);
   margin-bottom: 12px;
 }
 .last-draft .message-card p {
   font-size: 14px;
 }
 .last-draft .message-card .reply {
-  border-left: 2px solid #9ba890;
+  border-left: 2px solid var(--line);
   padding-left: 14px;
-  font:
-    italic 14px/1.6 Georgia,
-    serif;
+  font: italic 14px/1.6 var(--font);
 }
 .last-draft .workspace {
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 6px;
-  box-shadow: 0 6px 20px #51493208;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
   overflow: hidden;
 }
 .last-draft .workspace-top {
@@ -518,7 +496,7 @@
   gap: 12px;
   padding: 14px 24px;
   border-bottom: 1px solid var(--line);
-  background: #f8f5ed;
+  background: var(--bg-alt);
 }
 .last-draft .workspace-top label {
   margin: 0;
@@ -568,17 +546,17 @@
 .last-draft .pill {
   display: inline-block;
   padding: 3px 8px;
-  border: 1px solid #c4cfba;
+  border: 1px solid var(--line);
   border-radius: 4px;
-  color: #3e5833;
-  background: #edf1e6;
+  color: var(--text);
+  background: var(--bg-alt);
   font-size: 10px;
   white-space: nowrap;
 }
 .last-draft .pill.changed {
-  background: #fbefdc;
-  border-color: #d5bb8b;
-  color: #76551e;
+  background: var(--bg-alt);
+  border-color: var(--line);
+  color: var(--text);
 }
 .last-draft .editor-help {
   color: var(--muted);
@@ -586,14 +564,11 @@
 }
 .last-draft .manuscript {
   min-height: 310px;
-  font:
-    20px/1.95 Georgia,
-    "Times New Roman",
-    serif;
-  border-color: #d9d5c8;
-  background: linear-gradient(90deg, #f7f3e9aa, transparent 6%), #fffdf7;
+  font: 20px/1.95 var(--font);
+  border-color: var(--line);
+  background: var(--card);
   padding: 25px 30px;
-  box-shadow: inset 3px 0 0 #e6dfcd;
+  box-shadow: inset 3px 0 0 var(--bg-alt);
 }
 .last-draft .save-form {
   margin-top: 24px;
@@ -626,7 +601,7 @@
   list-style: none;
   padding: 0 0 0 15px;
   margin: 25px 0;
-  border-left: 2px solid #d2d7c5;
+  border-left: 2px solid var(--line);
 }
 .last-draft .revision-list li {
   position: relative;
@@ -639,7 +614,7 @@
   top: 24px;
   width: 10px;
   height: 10px;
-  background: #74866c;
+  background: var(--text);
   border: 2px solid var(--paper);
   border-radius: 50%;
 }
@@ -651,8 +626,8 @@
   gap: 15px;
 }
 .last-draft .revision-list .selected button {
-  background: #eef0e4;
-  border-color: #b3bca6;
+  background: var(--bg-alt);
+  border-color: var(--line);
 }
 .last-draft .revision-list strong {
   font-size: 14px;
@@ -681,7 +656,7 @@
   overflow: hidden;
 }
 .last-draft .comparison h3 {
-  background: #eeeade;
+  background: var(--bg-alt);
   padding: 12px;
   margin: 0;
   font:
@@ -691,9 +666,7 @@
     sans-serif;
 }
 .last-draft .diff-text {
-  font:
-    16px/1.8 Georgia,
-    serif;
+  font: 16px/1.8 var(--font);
 }
 .last-draft .diff-text p {
   padding: 12px 15px;
@@ -710,12 +683,12 @@
     monospace;
 }
 .last-draft .removed {
-  background: #f7e5dc;
-  color: #6d3427;
+  background: var(--red-bg);
+  color: var(--red);
 }
 .last-draft .added {
-  background: #e6eddd;
-  color: #2e4e2f;
+  background: var(--green-bg);
+  color: var(--green);
 }
 .last-draft .actions {
   display: flex;
@@ -731,13 +704,11 @@
   margin: 25px 0;
   padding: 20px;
   color: var(--muted);
-  background: #f2efe5;
-  font:
-    italic 17px/1.7 Georgia,
-    serif;
+  background: var(--bg-alt);
+  font: italic 17px/1.7 var(--font);
 }
 .last-draft .branch-map {
-  background: #f1f0e6;
+  background: var(--bg-alt);
   border: 1px solid var(--line);
   border-radius: 4px;
   padding: 20px;
@@ -813,19 +784,17 @@
   font-size: 12px;
 }
 .last-draft .conflict-workshop {
-  border-top: 4px solid #a35e33;
+  border-top: 4px solid var(--text);
   padding-top: 24px;
 }
 .last-draft .conflict-passage .ancestor {
   font-size: 13px;
-  background: #f1eee5;
+  background: var(--bg-alt);
   padding: 14px;
 }
 .last-draft .resolution {
   min-height: 220px;
-  font:
-    18px/1.85 Georgia,
-    serif;
+  font: 18px/1.85 var(--font);
   margin-bottom: 20px;
 }
 .last-draft .submission {
@@ -839,7 +808,7 @@
 .last-draft .conversation {
   list-style: none;
   padding: 0 0 0 20px;
-  border-left: 2px solid #c5d0b8;
+  border-left: 2px solid var(--line);
   margin: 25px 0;
 }
 .last-draft .conversation li {
@@ -853,23 +822,23 @@
 }
 .last-draft .success-note {
   padding: 18px;
-  background: #e9efdf;
+  background: var(--bg-alt);
   font-size: 14px;
 }
 .last-draft .feedback,
 .last-draft .storage-warning {
   margin: 16px 0;
   padding: 16px 20px;
-  border: 1px solid #acb99a;
-  background: #eef3e5;
+  border: 1px solid var(--line);
+  background: var(--bg-alt);
   border-radius: 4px;
   font-size: 14px;
 }
 .last-draft .feedback.error,
 .last-draft .storage-warning {
-  background: #fae9df;
-  color: #71321e;
-  border-color: #d2a48c;
+  background: var(--red-bg);
+  color: var(--red);
+  border-color: var(--line);
 }
 .last-draft .learning-panel {
   margin-top: 25px;
@@ -898,7 +867,7 @@
 }
 .last-draft .command-guide {
   width: 100%;
-  background: #e9eade;
+  background: var(--bg-alt);
   padding: 20px;
   border-radius: 5px;
 }
@@ -910,7 +879,7 @@
 }
 .last-draft .urgent-note {
   border-left: 4px solid var(--rust);
-  background: #f5e3d6;
+  background: var(--bg-alt);
   padding: 22px;
   margin-bottom: 20px;
   font-size: 14px;
@@ -919,10 +888,10 @@
   margin: 12px 0;
 }
 .last-draft .publication-panel {
-  border: 1px solid #b7bea9;
+  border: 1px solid var(--line);
   padding: 25px;
   margin-top: 24px;
-  background: #e7ebde;
+  background: var(--bg-alt);
   border-radius: 4px;
 }
 .last-draft .publication-panel p {
@@ -935,20 +904,18 @@
   background: var(--paper);
   padding: 55px 65px;
   border: 1px solid var(--line);
-  box-shadow: 0 10px 30px #53482d0a;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
 .last-draft .chapter-ending > h2,
 .last-draft .github-module > h2 {
   font-size: 48px;
 }
 .last-draft .ending-prose {
-  font:
-    22px/1.85 Georgia,
-    serif;
+  font: 22px/1.85 var(--font);
 }
 .last-draft .lesson-note {
-  background: #edf0e4;
-  border-left: 3px solid #879b75;
+  background: var(--bg-alt);
+  border-left: 3px solid var(--text);
   padding: 22px;
   margin: 25px 0;
   font-size: 14px;
@@ -962,15 +929,11 @@
   border: 3px double var(--ink);
 }
 .last-draft .issue-preview h3 {
-  font:
-    32px Georgia,
-    serif;
+  font: 32px var(--font);
 }
 .last-draft .published-text {
   white-space: pre-wrap;
-  font:
-    18px/1.85 Georgia,
-    serif;
+  font: 18px/1.85 var(--font);
 }
 .last-draft .skills-summary {
   border-top: 1px solid var(--line);
@@ -994,14 +957,10 @@
 }
 .last-draft .fieldwork li::marker {
   color: var(--rust);
-  font:
-    24px Georgia,
-    serif;
+  font: 24px var(--font);
 }
 .last-draft .fieldwork h3 {
-  font:
-    24px Georgia,
-    serif;
+  font: 24px var(--font);
 }
 .last-draft .fieldwork p {
   font-size: 15px;
@@ -1270,7 +1229,7 @@
 .last-draft .graph-scroll {
   overflow-x: auto;
   padding: 8px 0;
-  background: #f3f2e9;
+  background: var(--bg-alt);
   border: 1px solid var(--line);
   border-radius: 4px;
 }
@@ -1284,10 +1243,10 @@
   stroke-width: 2;
 }
 .last-draft .history-graph .same-history {
-  stroke: #58764b;
+  stroke: var(--link);
 }
 .last-draft .history-graph .joining-history {
-  stroke: #a45d39;
+  stroke: var(--purple);
 }
 .last-draft .history-graph circle {
   fill: var(--paper);

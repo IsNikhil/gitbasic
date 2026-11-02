@@ -1,0 +1,20 @@
+{
+  "name": "git-from-zero",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "check": "node scripts/check.mjs",
+    "test:browser": "node scripts/test-game-browsers.mjs",
+    "lint": "eslint games tests scripts eslint.config.mjs",
+    "typecheck": "tsc --project tsconfig.json",
+    "format": "prettier --check games tests scripts eslint.config.mjs package.json tsconfig.json README.md"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "playwright": "1.64.1",
+    "prettier": "^3.9.10",
+    "typescript": "^7.0.2"
+  }
+}

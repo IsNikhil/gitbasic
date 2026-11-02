@@ -1,0 +1,61 @@
+/* The optional longer exercises inherit the same site identity. */
+.last-draft {
+  font-family: var(--font);
+  font-size: 17px;
+  letter-spacing: -0.022em;
+}
+.last-draft h1,
+.last-draft h2,
+.last-draft h3,
+.last-draft .signature {
+  font-family: var(--font);
+  font-style: normal;
+  font-weight: 600;
+}
+.last-draft .masthead-title h1 {
+  font-size: clamp(36px, 5vw, 60px);
+  letter-spacing: -0.035em;
+}
+.last-draft .masthead-title p {
+  font-family: var(--font);
+  font-style: normal;
+}
+.last-draft .site-bar {
+  background: var(--nav-bg);
+  border-color: var(--line);
+}
+.last-draft button {
+  border-radius: 980px;
+  border-color: var(--line);
+}
+.last-draft button.primary {
+  background: var(--accent);
+  color: #fff;
+}
+.last-draft .assignment-card,
+.last-draft .editor-pane,
+.last-draft .welcome-letter,
+.last-draft .review-card {
+  border-radius: var(--radius);
+  background: var(--card);
+  border-color: var(--line);
+  box-shadow: var(--shadow);
+}
+.last-draft .masthead {
+  border-color: var(--line);
+}
+.last-draft a {
+  color: var(--link);
+}
+.last-draft input,
+.last-draft textarea,
+.last-draft select {
+  background: var(--card);
+  color: var(--text);
+  border-color: var(--line);
+  border-radius: 12px;
+}
+.last-draft :focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}

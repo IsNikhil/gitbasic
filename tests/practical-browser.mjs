@@ -80,7 +80,7 @@ try {
     const tab = async (name) => {
       await click(name);
     };
-    await page.goto(`${base}/gitbasic/games/the-last-draft/`);
+    await page.goto(`${base}/gitbasic/games/the-last-draft/?practice=story`);
     await page
       .getByRole("link", {
         name: "Play the 11-chapter Git & GitHub campaign →",
@@ -300,7 +300,9 @@ try {
     };
   });
   const page = await context.newPage();
-  await page.goto(`${base}/games/the-last-draft/practical.html`);
+  await page.goto(
+    `${base}/games/the-last-draft/practical.html?practice=commands`,
+  );
   await page
     .getByRole("button", { name: "Take your seat", exact: true })
     .click();
